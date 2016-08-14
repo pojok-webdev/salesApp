@@ -36,6 +36,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	<!-- Padi CSS -->
+	<link rel='stylesheet' href='<?php echo base_url();?>src/padi/padistylesheet.css'>
 </head>
 
 <body>
@@ -58,7 +60,7 @@
             <ul class="nav navbar-top-links navbar-right">
 				<li>
                     <a href="#">
-                        <i class="fa fa-plus fa-fw"></i>
+                        <i class="fa fa-gear fa-fw"></i>
                     </a>
 
 				</li>
@@ -84,7 +86,11 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header">Laporan Farmer</h3>
+                    <span class='padileftnav'>Laporan Farmer</span>
+                    <span class='padirightnav'>
+						<button type="button" class="btn btn-default">Add</button>
+						<button type="button" class="btn btn-default btn-circle"><i class="fa fa-plus"></i>
+                    </span>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -118,7 +124,17 @@
                                             <td class="center"><?php echo $res->actname;?></td>
                                             <td class="center"><?php echo $res->techdetail;?></td>
                                             <td class="center"><?php echo $res->sales;?></td>
-                                            <td class="center">X</td>
+                                            <td class="center">
+											<div class="btn-group">
+												<button data-toggle="dropdown" class="btn dropdown-toggle"  >Action <span class="caret"></span></button>
+												<ul class="dropdown-menu pull-right">
+													<li class='btn_edit pointer'   ><a><i class="fa fa-pencil"></i>&nbsp;Edit</a></li>
+													<li class="divider"></li>
+													<li class='btn_report pointer'><a><i class="fa fa-trash"></i>&nbsp;Remove</a></li>
+												</ul>
+											</div>
+
+                                            </td>
                                         </tr>
                                         <?php }?>
                                     </tbody>
