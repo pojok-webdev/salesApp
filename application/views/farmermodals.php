@@ -20,8 +20,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-        <button type="button" class="btn btn-primary" id="btnRemoveAct">Ya</button>
+        <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Tidak</button>
+        <button type="button" class="btn btn-primary closebutton" id="btnRemoveAct">Ya</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -52,8 +52,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary closebutton">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -91,8 +91,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btnSaveAct">Save changes</button>
+        <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary closebutton" id="btnSaveAct">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

@@ -24,7 +24,7 @@ class Main extends CI_Controller {
 		$this->db->query($sql);
 		echo "suksess";
 	}
-	function test(){
-		echo "hola";
+	function update_act(){
+		
 	}
 }
