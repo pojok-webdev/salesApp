@@ -101,7 +101,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="dataTable_wrapper">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="tFarmer">
                                     <thead>
                                         <tr>
                                             <th>Tanggal</th>
@@ -116,13 +116,13 @@
                                     </thead>
                                     <tbody>
 										<?php foreach($result as $res){?>
-                                        <tr class="odd gradeX">
+                                        <tr class="odd gradeX" myid="<?php echo $res->id;?>">
                                             <td><?php echo $res->actdate;?></td>
                                             <td><?php echo $res->division;?></td>
                                             <td><?php echo $res->padipic;?></td>
                                             <td class="center"><?php echo $res->clientpic;?></td>
-                                            <td class="center"><?php echo $res->actname;?></td>
-                                            <td class="center"><?php echo $res->techdetail;?></td>
+                                            <td class="center act"><?php echo $res->actname;?></td>
+                                            <td class="center actdetail"><?php echo $res->techdetail;?></td>
                                             <td class="center"><?php echo $res->sales;?></td>
                                             <td class="center">
 											<div class="btn-group">
@@ -130,7 +130,7 @@
 												<ul class="dropdown-menu pull-right">
 													<li class='btn_edit pointer'   ><a><i class="fa fa-pencil"></i>&nbsp;Edit</a></li>
 													<li class="divider"></li>
-													<li class='btn_report pointer'><a><i class="fa fa-trash"></i>&nbsp;Remove</a></li>
+													<li class='btn_remove pointer'><a><i class="fa fa-trash"></i>&nbsp;Remove</a></li>
 												</ul>
 											</div>
 
@@ -172,17 +172,65 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>src/dist/js/sb-admin-2.js"></script>
     <script src="<?php echo base_url();?>src/bootstraps/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url();?>src/padi/padi.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
+        $('#tFarmer').DataTable({
                 responsive: true
         });
         $("#btnAdd").click(function(){
 			$("#dAdd").modal();
 		});
+        $("#tFarmer").on("click",".btn_edit",function(){
+			$("#dAdd").modal();
+		});
+        $("#tFarmer").on("click",".btn_remove",function(){
+			selected = $(this).stairUp({level:5});
+			$("#tFarmer tbody tr").removeClass("selected");
+			selected.addClass("selected");
+			$("#act").html(selected.find(".act").html());
+			$("#actdetail").html(selected.find(".actdetail").html());
+			$("#dConfirm").modal();
+		});
 		$("#actdate").datepicker();
+		$("#btnSaveAct").click(function(){
+			console.log("save Act clicked");
+			$.ajax({
+				url:thisdomain+"Main/save_act",
+				data:{
+					"actdate":$("#aactdate").val(),
+					"division":"farmer",
+					"padipic":"jojon",
+					"clientpic":$("#aclientpic").val(),
+					"actname":$("#aact").val(),
+					"techdetail":$("#aactdetail").val(),
+					"sales":$("#asales").val(),
+					"createuser":"acreateuser"
+				},
+				type:"post"
+			})
+			.done(function(res){
+				console.log(res);
+			})
+			.fail(function(err){
+				console.log(err);
+			});
+		});
+		$("#btnRemoveAct").click(function(){
+			$.ajax({
+				url:thisdomain+"Main/remove_act",
+				data:{id:selected.attr("myid")},
+				type:"post"
+			})
+			.done(function(res){
+				console.log(res);
+			})
+			.fail(function(err){
+				console.log(err);
+			});
+		});
     });
     </script>
 
