@@ -60,8 +60,8 @@
 
             <ul class="nav navbar-top-links navbar-right">
 				<li>
-                    <a href="#">
-                        <i class="fa fa-gear fa-fw"></i>
+                    <a href="<?php echo base_url();?>main/signout">
+                        <i class="fa fa-sign-out fa-fw"></i>
                     </a>
 
 				</li>

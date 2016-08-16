@@ -9,6 +9,9 @@ class Main extends CI_Controller {
 		$data['result'] = $query->result();
 		$this->load->view('farmer_report',$data);
 	}
+	function login(){
+		$this->load->view("login");
+	}
 	function save_act(){
 		$params = $this->input->post();
 		$sql = "insert into activities ";
@@ -23,6 +26,10 @@ class Main extends CI_Controller {
 		$sql = "delete from activities where id=".$params['id'];
 		$this->db->query($sql);
 		echo "suksess";
+	}
+	function signout(){
+		echo "You are exit";
+		redirect(base_url()."main/login");
 	}
 	function update_act(){
 		
