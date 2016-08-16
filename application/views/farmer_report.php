@@ -166,19 +166,21 @@
     <!--<script src="<?php echo base_url();?>src/bower_components/metisMenu/dist/metisMenu.min.js"></script>-->
 
     <!-- DataTables JavaScript -->
-    <script src="<?php echo base_url();?>src/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <!--<script src="<?php echo base_url();?>src/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>-->
     <!--<script src="<?php echo base_url();?>src/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>-->
-    <script src="<?php echo base_url();?>src/bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <!--<script src="<?php echo base_url();?>src/bower_components/datatables-responsive/js/dataTables.responsive.js"></script>-->
+    
 
     <!-- Custom Theme JavaScript -->
     <!--<script src="<?php echo base_url();?>src/dist/js/sb-admin-2.js"></script>-->
     <script src="<?php echo base_url();?>src/bootstraps/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url();?>src/js/dataTable-1.10.12.min.js"></script>
     <script src="<?php echo base_url();?>src/padi/padi.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
-        tFarmer = $('#tFarmer').DataTable({
+        var tFarmer = $('#tFarmer').dataTable({
                 responsive: true
         });
         $("#btnAdd").click(function(){
@@ -214,6 +216,7 @@
 			})
 			.done(function(res){
 				console.log(res);
+				newRow = $('#tFarmer').dataTable().fnAddData([$("#aactdate").val(), "farmer", "joojoon",$("#aclientpic").val(),$("#aact").val(),$("#aactdetail").val(),$("#asales").val(),'<div class="btn-group"><button data-toggle="dropdown" class="btn dropdown-toggle">Action <span class="caret"></span></button><ul class="dropdown-menu pull-right">z<li class="btntroubleshoot"><a href="#">Troubleshoot</a></li><li class="btnfollowup pointer"><a>Follow Up Ticket</a></li></ul></div>']);
 			})
 			.fail(function(err){
 				console.log(err);
@@ -228,9 +231,6 @@
 			})
 			.done(function(res){
 				console.log(res);
-
-				newRow = tFarmer.fnAddData([$("#aactdate").val(), "farmer", "joojoon",$("#aclientpic").val(),$("#aact").val(), $("#atechdetail").val(),$("#asales").val(),'<div class="btn-group"><button data-toggle="dropdown" class="btn dropdown-toggle">Action <span class="caret"></span></button><ul class="dropdown-menu pull-right">z<li class="btntroubleshoot"><a href="#">Troubleshoot</a></li><li class="btnfollowup pointer"><a>Follow Up Ticket</a></li></ul></div>']);
-
 			})
 			.fail(function(err){
 				console.log(err);
