@@ -38,6 +38,7 @@
 
 	<!-- Padi CSS -->
 	<link rel='stylesheet' href='<?php echo base_url();?>src/padi/padistylesheet.css'>
+	<link rel='stylesheet' href='<?php echo base_url();?>src/css/dataTables-1.10.12.min.css'>
 </head>
 
 <body>
