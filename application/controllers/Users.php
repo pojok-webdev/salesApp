@@ -21,10 +21,21 @@ class Users extends CI_Controller{
 		$this->db->query($sql);
 	}
 	function login(){
-		if($this->padi_auth->login("puji@padi.net.id","ora rahasia")){
+		$username = "puji@padi.net.id";
+		if($this->padi_auth->login($username,"ora rahasia")){
+			session_start();
+			$_SESSION["username"] = $username;
 			echo "OK";
 		}else{
 			echo "Wrong Username / Password";
+		}
+	}
+	function is_signin(){
+		session_start();
+		if(isset($_SESSION["username"])){
+			echo $_SESSION["username"];
+		}else{
+			echo "session habis";
 		}
 	}
 }
